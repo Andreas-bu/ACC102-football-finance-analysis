@@ -42,7 +42,7 @@ Do higher revenues automatically lead to better financial health? This project e
 
    jupyter notebook notebook.ipynb
 
-## 🚀 Run with Streamlit (Interactive Web App)
+##  Run with Streamlit (Interactive Web App)
 
 This project includes an **interactive web interface** built with Streamlit for better user engagement.
 
@@ -59,3 +59,9 @@ pip install streamlit pandas matplotlib seaborn
 
 # 3. Run the Streamlit app
 streamlit run app.py
+
+###  Online Demo
+
+[Open Interactive Web App](https://andreas-bu-acc102-football-finance-analysis-app-vzrdmo.streamlit.app)
+
+You can interact with the filters to explore different clubs and years.
