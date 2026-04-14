@@ -1,0 +1,101 @@
+﻿Club Name,Year,Total Revenue (€m),Commercial Revenue (€m),Wages/Revenue Ratio (%)
+Real Madrid,2020,692.0,360,59
+Real Madrid,2021,641.0,322,63
+Real Madrid,2022,714.0,319,73
+Real Madrid,2023,831.4,403,54
+Real Madrid,2024,1045.5,482,48
+Manchester City,2020,549.0,285,73
+Manchester City,2021,645.0,308,62
+Manchester City,2022,731.0,373,57
+Manchester City,2023,825.9,399,59
+Manchester City,2024,837.8,407,57
+Paris Saint-Germain,2020,541.0,299,77
+Paris Saint-Germain,2021,556.0,337,91
+Paris Saint-Germain,2022,654.0,383,111
+Paris Saint-Germain,2023,801.8,400,77
+Paris Saint-Germain,2024,805.9,391,83
+Manchester United,2020,580.0,322,56
+Manchester United,2021,558.0,262,65
+Manchester United,2022,689.0,309,66
+Manchester United,2023,745.8,355,51
+Manchester United,2024,770.6,360,56
+Bayern Munich,2020,634.0,361,54
+Bayern Munich,2021,611.0,345,61
+Bayern Munich,2022,654.0,378,53
+Bayern Munich,2023,744.0,419,56
+Bayern Munich,2024,765.4,421,56
+FC Barcelona,2020,713.0,338,68
+FC Barcelona,2021,582.0,277,84
+FC Barcelona,2022,638.0,284,73
+FC Barcelona,2023,800.1,412,81
+FC Barcelona,2024,760.3,421,65
+Arsenal,2020,388.0,162,69
+Arsenal,2021,367.0,154,75
+Arsenal,2022,433.0,167,58
+Arsenal,2023,532.6,195,51
+Arsenal,2024,716.5,258,53
+Liverpool,2020,559.0,243,67
+Liverpool,2021,550.0,238,64
+Liverpool,2022,702.0,275,62
+Liverpool,2023,682.9,298,63
+Liverpool,2024,714.7,343,63
+Tottenham Hotspur,2020,446.0,183,46
+Tottenham Hotspur,2021,406.0,171,57
+Tottenham Hotspur,2022,523.0,215,47
+Tottenham Hotspur,2023,631.5,261,46
+Tottenham Hotspur,2024,615.0,297,42
+Chelsea,2020,470.0,199,77
+Chelsea,2021,493.0,176,77
+Chelsea,2022,568.0,209,71
+Chelsea,2023,589.4,242,79
+Chelsea,2024,545.5,262,72
+Borussia Dortmund,2020,366.0,141,59
+Borussia Dortmund,2021,338.0,149,64
+Borussia Dortmund,2022,357.0,167,65
+Borussia Dortmund,2023,420.0,188,56
+Borussia Dortmund,2024,513.7,215,52
+Atlético de Madrid,2020,332.0,83,64
+Atlético de Madrid,2021,333.0,98,74
+Atlético de Madrid,2022,394.0,108,65
+Atlético de Madrid,2023,364.1,122,67
+Atlético de Madrid,2024,409.5,117,65
+AC Milan,2020,154.0,58,108
+AC Milan,2021,216.0,69,78
+AC Milan,2022,257.0,79,66
+AC Milan,2023,385.3,124,45
+AC Milan,2024,397.6,150,47
+FC Internazionale Milano,2020,292.0,99,68
+FC Internazionale Milano,2021,331.0,113,83
+FC Internazionale Milano,2022,308.0,87,82
+FC Internazionale Milano,2023,378.9,73,61
+FC Internazionale Milano,2024,391.0,112,59
+Newcastle United,2020,185.0,32,75
+Newcastle United,2021,170.0,26,71
+Newcastle United,2022,212.0,33,95
+Newcastle United,2023,287.8,54,75
+Newcastle United,2024,371.8,90,68
+Juventus,2020,399.0,190,72
+Juventus,2021,433.0,189,78
+Juventus,2022,401.0,194,84
+Juventus,2023,433.9,219,65
+Juventus,2024,355.7,201,74
+West Ham United,2020,157.0,38,97
+West Ham United,2021,222.0,37,66
+West Ham United,2022,301.0,59,53
+West Ham United,2023,275.1,58,57
+West Ham United,2024,322.2,76,58
+Aston Villa,2020,132.0,25,94
+Aston Villa,2021,207.0,29,75
+Aston Villa,2022,211.0,39,77
+Aston Villa,2023,243.7,36,94
+Aston Villa,2024,310.2,43,96
+Olympique de Marseille,2020,119.0,50,99
+Olympique de Marseille,2021,146.0,54,84
+Olympique de Marseille,2022,238.0,132,57
+Olympique de Marseille,2023,258.4,57,n/d
+Olympique de Marseille,2024,287.0,102,n/d
+Olympique Lyonnais,2020,181.0,48,73
+Olympique Lyonnais,2021,118.0,47,113
+Olympique Lyonnais,2022,160.0,70,62
+Olympique Lyonnais,2023,199.1,76,79
+Olympique Lyonnais,2024,264.1,135,61
