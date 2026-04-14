@@ -37,7 +37,6 @@ Do higher revenues automatically lead to better financial health? This project e
 - Clubs with higher commercial revenue share showed faster recovery and more stable cost control.
 - On-pitch success (e.g. Champions League performance) has a lagged positive impact on revenue diversification.
 
-*(Insert 3–4 key charts here after your friend generates them)*
 
 ## How to Run
 
