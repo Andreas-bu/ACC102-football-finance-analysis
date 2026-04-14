@@ -36,8 +36,26 @@ Do higher revenues automatically lead to better financial health? This project e
 ## How to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Andreas-bu/acc102-top20-football-finance-analysis.git
+   git clone https://github.com/Andreas-bu/ACC102-football-finance-analysis
 
    pip install -r requirements.txt
 
    jupyter notebook notebook.ipynb
+
+## 🚀 Run with Streamlit (Interactive Web App)
+
+This project includes an **interactive web interface** built with Streamlit for better user engagement.
+
+### How to run locally:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Andreas-bu/ACC102-football-finance-analysis
+cd ACC102-football-finance-analysis
+
+# 2. Install required packages
+pip install -r requirements.txt
+pip install streamlit pandas matplotlib seaborn
+
+# 3. Run the Streamlit app
+streamlit run app.py
