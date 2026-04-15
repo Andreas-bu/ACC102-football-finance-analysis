@@ -33,8 +33,9 @@ df['Wages_Ratio'] = pd.to_numeric(df['Wages_Ratio'], errors='coerce')
 df['Wages_Amount'] = df['Total_Revenue'] * (df['Wages_Ratio'] / 100)
 df['Commercial_Share'] = (df['Commercial_Revenue'] / df['Total_Revenue']) * 100
 
-# Sidebar filters
+# ====================== Filters ======================
 st.sidebar.header("🔍 Filters")
+
 selected_clubs = st.sidebar.multiselect(
     "Select Clubs",
     options=df['Club'].unique(),
@@ -47,53 +48,95 @@ selected_years = st.sidebar.multiselect(
     default=[2024]
 )
 
-# Filter data
-filtered_df = df[(df['Club'].isin(selected_clubs)) & (df['Year'].isin(selected_years))]
+sort_by = st.sidebar.selectbox(
+    "Sort By",
+    options=["Total Revenue (High to Low)", 
+             "Wages Ratio (Low to High)", 
+             "Commercial Share (High to Low)"],
+    index=0
+)
 
-# Main content
+wages_range = st.sidebar.slider(
+    "Wages/Revenue Ratio Range (%)",
+    min_value=0, max_value=100, value=(30, 80)
+)
+
+min_commercial = st.sidebar.slider(
+    "Minimum Commercial Revenue Share (%)",
+    min_value=0, max_value=70, value=20
+)
+
+# Filter and sort data
+filtered_df = df[
+    (df['Club'].isin(selected_clubs)) &
+    (df['Year'].isin(selected_years)) &
+    (df['Wages_Ratio'] >= wages_range[0]) &
+    (df['Wages_Ratio'] <= wages_range[1]) &
+    (df['Commercial_Share'] >= min_commercial)
+]
+
+if "Total Revenue" in sort_by:
+    filtered_df = filtered_df.sort_values("Total_Revenue", ascending=False)
+elif "Wages Ratio" in sort_by:
+    filtered_df = filtered_df.sort_values("Wages_Ratio", ascending=True)
+else:
+    filtered_df = filtered_df.sort_values("Commercial_Share", ascending=False)
+
+# ====================== Main Content ======================
 st.subheader("📋 Filtered Data")
 st.dataframe(filtered_df, use_container_width=True)
 
-# Chart 1: Wages/Revenue Ratio with FFP threshold
-st.subheader("1. Wages/Revenue Ratio (2024) - UEFA FFP 70% Warning")
-if not filtered_df.empty and 2024 in filtered_df['Year'].values:
-    df_2024 = filtered_df[filtered_df['Year'] == 2024]
-    fig1, ax1 = plt.subplots(figsize=(10, 6))
-    sns.barplot(data=df_2024.sort_values('Wages_Ratio', ascending=False),
-                x='Club', y='Wages_Ratio', ax=ax1, palette="Blues_d")
-    ax1.axhline(y=70, color='red', linestyle='--', linewidth=2.5, label='UEFA FFP 70% Threshold')
-    ax1.set_xticklabels(ax1.get_xticklabels(), rotation=45, ha='right')
-    ax1.set_ylabel("Wages/Revenue Ratio (%)")
-    ax1.legend()
-    st.pyplot(fig1)
+col1, col2 = st.columns(2)
 
-# Chart 2: Commercial Revenue Share
-st.subheader("2. Commercial Revenue Share (%)")
-fig2, ax2 = plt.subplots(figsize=(10, 6))
-sns.barplot(data=filtered_df.sort_values('Commercial_Share', ascending=False),
-            x='Club', y='Commercial_Share', ax=ax2, palette="Greens_d")
-ax2.set_xticklabels(ax2.get_xticklabels(), rotation=45, ha='right')
-ax2.set_ylabel("Commercial Revenue Share (%)")
-st.pyplot(fig2)
+with col1:
+    st.subheader("1. Wages/Revenue Ratio (2024) - UEFA FFP 70% Warning")
+    if not filtered_df.empty and 2024 in filtered_df['Year'].values:
+        df_2024 = filtered_df[filtered_df['Year'] == 2024]
+        fig1, ax1 = plt.subplots(figsize=(10, 6))
+        sns.barplot(data=df_2024.sort_values('Wages_Ratio', ascending=False),
+                    x='Club', y='Wages_Ratio', ax=ax1, palette="Blues_d")
+        ax1.axhline(y=70, color='red', linestyle='--', linewidth=2.5, label='UEFA FFP 70% Threshold')
+        ax1.set_xticklabels(ax1.get_xticklabels(), rotation=45, ha='right')
+        ax1.set_ylabel("Wages/Revenue Ratio (%)")
+        ax1.legend()
+        st.pyplot(fig1)
 
-# Chart 3: 5-year trend for selected clubs
-st.subheader("3. 5-Year Wages Ratio Trend")
+with col2:
+    st.subheader("2. Commercial Revenue Share (%)")
+    fig2, ax2 = plt.subplots(figsize=(10, 6))
+    sns.barplot(data=filtered_df.sort_values('Commercial_Share', ascending=False),
+                x='Club', y='Commercial_Share', ax=ax2, palette="Greens_d")
+    ax2.set_xticklabels(ax2.get_xticklabels(), rotation=45, ha='right')
+    ax2.set_ylabel("Commercial Revenue Share (%)")
+    st.pyplot(fig2)
+
+# Chart 3: Scatter Plot
+st.subheader("3. Total Revenue vs Wages/Revenue Ratio")
+fig3, ax3 = plt.subplots(figsize=(10, 6))
+sns.regplot(data=filtered_df, x='Total_Revenue', y='Wages_Ratio', 
+            ax=ax3, scatter_kws={'alpha':0.7}, line_kws={'color':'red'})
+ax3.set_xlabel("Total Revenue (€m)")
+ax3.set_ylabel("Wages/Revenue Ratio (%)")
+st.pyplot(fig3)
+
+# Chart 4: 5-Year Trend
+st.subheader("4. 5-Year Wages Ratio Trend")
 trend_df = df[df['Club'].isin(selected_clubs)]
 if not trend_df.empty:
-    fig3, ax3 = plt.subplots(figsize=(10, 6))
+    fig4, ax4 = plt.subplots(figsize=(12, 7))
     sns.lineplot(data=trend_df, x='Year', y='Wages_Ratio', hue='Club', 
-                 marker='o', linewidth=2.5, ax=ax3)
-    ax3.set_ylabel("Wages/Revenue Ratio (%)")
-    ax3.grid(True)
-    st.pyplot(fig3)
+                 marker='o', linewidth=2.5, ax=ax4)
+    ax4.set_ylabel("Wages/Revenue Ratio (%)")
+    ax4.grid(True, alpha=0.3)
+    st.pyplot(fig4)
 
-# Accounting insights
-st.subheader("💼 Key Accounting Insights")
-st.write("""
-- Clubs with higher revenue tend to have better cost discipline (lower wages ratio).
-- Commercial revenue share is a strong indicator of financial resilience.
-- Several clubs exceeded the UEFA FFP 70% warning threshold in 2024.
-- European success shows a lagged positive effect on commercial revenue growth.
-""")
+# Summary
+st.subheader("5. Summary Statistics")
+summary = filtered_df.groupby('Club').agg({
+    'Total_Revenue': 'mean',
+    'Wages_Ratio': 'mean',
+    'Commercial_Share': 'mean'
+}).round(2)
+st.dataframe(summary, use_container_width=True)
 
 st.caption("Data source: Deloitte Football Money League 2025 Report | Accessed: April 2026")
