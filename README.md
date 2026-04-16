@@ -67,3 +67,5 @@ cd ACC102-football-finance-analysis
 
 pip install -r requirements.txt
 streamlit run app.py
+
+jupyter notebook football_analysis_csv.ipynb
