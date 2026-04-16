@@ -6,7 +6,7 @@ import seaborn as sns
 st.set_page_config(page_title="Football Finance Analysis", layout="wide")
 
 st.title("🏟️ Top 20 Football Clubs Financial Health Analysis")
-st.subheader("2020–2024 | ACC102 Track 2 Data Product")
+st.subheader("2020–2024 | ACC102 Track 4 Data Product")
 
 # Load data
 @st.cache_data
