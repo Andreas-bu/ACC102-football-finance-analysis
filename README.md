@@ -2,13 +2,20 @@
 
 ## 2020–2024 Top 20 Football Clubs Financial Health Analysis
 
-**ACC102 Track 4: Top 20 Football Clubs Financial Health Analysis (2020–2024)**
+**ACC102 Track 4: Interactive Data Analysis Tool**  
+**Product**: Streamlit Interactive Web App
+
+---
 
 ## Problem & User
 
-Do higher revenues automatically lead to better financial health? This project examines **cost control** (measured by Wages/Revenue Ratio) and **revenue diversification** (especially commercial revenue) among the world's top 20 revenue-generating football clubs, while linking financial metrics to on-pitch performance.
+Do higher revenues automatically lead to better financial health?  
+
+This project examines **cost control** (measured by Wages/Revenue Ratio) and **revenue diversification** (especially commercial revenue) among the world's top 20 revenue-generating football clubs, while linking financial metrics to on-pitch performance.
 
 **Target audience**: Club financial directors, sports investors, and accounting professionals interested in sustainable football club business models and UEFA Financial Fair Play (FFP) compliance.
+
+---
 
 ## Data
 
@@ -17,13 +24,18 @@ Do higher revenues automatically lead to better financial health? This project e
 - **Performance Data**: 5-year league and European competition results for Real Madrid, AC Milan, and Paris Saint-Germain
 - Data accessed: 13 April 2026
 
+---
+
 ## Methods
 
-- Python-based analysis in Jupyter Notebook (`notebook.ipynb`)
+- Interactive web application built with **Streamlit** (app.py)
+- Supporting analytical workflow in Jupyter Notebook (`football_analysis_csv.ipynb`)
 - Data loading, cleaning, and feature engineering (new columns: Wages Amount, Commercial Share %)
-- 2024 cross-sectional analysis: bar charts and scatter plots with regression
-- 5-year longitudinal case study: multi-line trends and dual-axis visualizations linking financial metrics to European results
-- Libraries: pandas, matplotlib, seaborn
+- 2024 cross-sectional analysis with interactive filters, bar charts, scatter plots with regression
+- 5-year longitudinal case study with dynamic multi-line trends and dual-axis visualizations
+- Libraries: pandas, matplotlib, seaborn, streamlit
+
+---
 
 ## Key Findings
 
@@ -37,27 +49,21 @@ Do higher revenues automatically lead to better financial health? This project e
 - Clubs with higher commercial revenue share showed faster recovery and more stable cost control.
 - On-pitch success (e.g. Champions League performance) has a lagged positive impact on revenue diversification.
 
+---
 
 ## How to Run
 
-### 1. Run the Jupyter Notebook
+### 🌐 Online Demo (Recommended)
+
+**[Open Interactive Web App](https://andreas-bu-acc102-football-finance-analysis-app-vzrdmo.streamlit.app)**
+
+Use the filters on the left to explore clubs, years, wages ratio range, and commercial share interactively.
+
+### 1. Run Locally with Streamlit (Interactive Tool)
 
 ```bash
 git clone https://github.com/Andreas-bu/ACC102-football-finance-analysis.git
 cd ACC102-football-finance-analysis
 
 pip install -r requirements.txt
-jupyter notebook notebook.ipynb
-
-# After cloning the repository:
-
-pip install -r requirements.txt
-pip install streamlit
-
 streamlit run app.py
-
-###  Online Demo
-
-**[Open Interactive Web App](https://andreas-bu-acc102-football-finance-analysis-app-vzrdmo.streamlit.app)**
-
-You can use the filters on the left to explore different clubs and years interactively.
